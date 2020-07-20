@@ -87,6 +87,93 @@ class CardFront extends React.Component {
                         <div className="col-xs-6"></div>
 
                         <div className="col-xs-6 side-front-content">
+                            <h1 align="center">
+                                {' '}
+                                &emsp; &emsp; &emsp; &emsp;
+                                &emsp;&emsp;&emsp;&emsp;&emsp;Your Bank accounts
+                            </h1>
+
+                            <p>
+                                View and add your bank accounts in one place !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardFront2 extends React.Component {
+    render() {
+        return (
+            <div className="card-side side-front">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-xs-6"></div>
+
+                        <div className="col-xs-6 side-front-content">
+                            <h1>Find Rentals/Buy a home</h1>
+
+                            <p>
+                                Check out Apartment listings at your preferred
+                                location at affordable prices!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardFront3 extends React.Component {
+    render() {
+        return (
+            <div className="card-side side-front">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-xs-6"></div>
+
+                        <div className="col-xs-6 side-front-content">
+                            <h2>Czech based</h2>
+
+                            <h1>UI/UX Designer</h1>
+
+                            <p>
+                                Andrey is driven by turning ideas into scalable
+                                and and empowering experiences that solve real
+                                life problems.
+                            </p>
+
+                            <p>
+                                He is currently the founder of Dvorak Media.
+                                Previously, Andrey was a product designer at
+                                Dropbox.
+                            </p>
+
+                            <p>
+                                Over the years, Michael has been priviledged to
+                                have worked with Adobe, Evernote, Square and
+                                more.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardFront4 extends React.Component {
+    render() {
+        return (
+            <div className="card-side side-front">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-xs-6"></div>
+
+                        <div className="col-xs-6 side-front-content">
                             <h2>Czech based</h2>
 
                             <h1>UI/UX Designer</h1>
@@ -118,6 +205,210 @@ class CardFront extends React.Component {
 
 // React component for the back side of the card
 class CardBack extends React.Component {
+    render() {
+        return (
+            <div className="card-side side-back">
+                <div className="container-fluid">
+                    <h1>Your Bank accounts</h1>
+
+                    <form formAction="" className="card-form">
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactFirstName"
+                                    id="contactFirstName"
+                                    type="text"
+                                    placeholder="Your first name"
+                                />
+                            </div>
+
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactLastName"
+                                    id="contactLastName"
+                                    type="text"
+                                    placeholder="Your last name"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactEmail"
+                                    id="contactEmail"
+                                    type="email"
+                                    placeholder="Your email address"
+                                />
+                            </div>
+
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactSubject"
+                                    id="contactSubject"
+                                    type="text"
+                                    placeholder="Subject"
+                                />
+                            </div>
+                        </div>
+
+                        <CardTextarea
+                            name="contactMessage"
+                            id="contactMessage"
+                            placeholder="Your message"
+                        />
+
+                        <CardBtn
+                            className="btn btn-primary"
+                            type="submit"
+                            value="Send message"
+                        />
+                    </form>
+
+                    <CardProfileLinks />
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardBack2 extends React.Component {
+    render() {
+        return (
+            <div className="card-side side-back">
+                <div className="container-fluid">
+                    <h1>Search for your Dream Home</h1>
+
+                    <form formAction="" className="card-form">
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactFirstName"
+                                    id="contactFirstName"
+                                    type="text"
+                                    placeholder="Your first name"
+                                />
+                            </div>
+
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactLastName"
+                                    id="contactLastName"
+                                    type="text"
+                                    placeholder="Your last name"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactEmail"
+                                    id="contactEmail"
+                                    type="email"
+                                    placeholder="Your email address"
+                                />
+                            </div>
+
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactSubject"
+                                    id="contactSubject"
+                                    type="text"
+                                    placeholder="Subject"
+                                />
+                            </div>
+                        </div>
+
+                        <CardTextarea
+                            name="contactMessage"
+                            id="contactMessage"
+                            placeholder="Your message"
+                        />
+
+                        <CardBtn
+                            className="btn btn-primary"
+                            type="submit"
+                            value="Send message"
+                        />
+                    </form>
+
+                    <CardProfileLinks />
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardBack3 extends React.Component {
+    render() {
+        return (
+            <div className="card-side side-back">
+                <div className="container-fluid">
+                    <h1>Let's get in touch!</h1>
+
+                    <form formAction="" className="card-form">
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactFirstName"
+                                    id="contactFirstName"
+                                    type="text"
+                                    placeholder="Your first name"
+                                />
+                            </div>
+
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactLastName"
+                                    id="contactLastName"
+                                    type="text"
+                                    placeholder="Your last name"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactEmail"
+                                    id="contactEmail"
+                                    type="email"
+                                    placeholder="Your email address"
+                                />
+                            </div>
+
+                            <div className="col-xs-6">
+                                <CardInput
+                                    name="contactSubject"
+                                    id="contactSubject"
+                                    type="text"
+                                    placeholder="Subject"
+                                />
+                            </div>
+                        </div>
+
+                        <CardTextarea
+                            name="contactMessage"
+                            id="contactMessage"
+                            placeholder="Your message"
+                        />
+
+                        <CardBtn
+                            className="btn btn-primary"
+                            type="submit"
+                            value="Send message"
+                        />
+                    </form>
+
+                    <CardProfileLinks />
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardBack4 extends React.Component {
     render() {
         return (
             <div className="card-side side-back">
@@ -202,27 +493,27 @@ class Card extends React.Component {
                 <div className="column">
                     <div className="card-container">
                         <div className="card-body">
-                            <CardBack />
+                            <CardBack2 />
 
-                            <CardFront />
+                            <CardFront2 />
                         </div>
                     </div>
                 </div>
                 <div className="column">
                     <div className="card-container">
                         <div className="card-body">
-                            <CardBack />
+                            <CardBack3 />
 
-                            <CardFront />
+                            <CardFront3 />
                         </div>
                     </div>
                 </div>
                 <div className="column">
                     <div className="card-container">
                         <div className="card-body">
-                            <CardBack />
+                            <CardBack4 />
 
-                            <CardFront />
+                            <CardFront4 />
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import GroupIcon from '@material-ui/icons/Group'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+import { Card } from './Menu'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -127,17 +128,19 @@ export default function AddEmployee() {
                             />
                         </Grid>
                     </Grid>
-                    <Button
-                        // type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        preventDefault
-                        className={classes.submit}
-                        onClick={handleSubmit}
-                    >
-                        Login
-                    </Button>
+                    <a href="/menu">
+                        <Button
+                            // type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            preventDefault
+                            className={classes.submit}
+                            //onClick={Card}
+                        >
+                            Login
+                        </Button>
+                    </a>
                 </form>
                 <Typography style={{ margin: 7 }} variant="body1">
                     Status: {message}
