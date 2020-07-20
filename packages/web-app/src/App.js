@@ -13,7 +13,7 @@ import Redirecting from './Redirecting'
 import PrivateRoute from './PrivateRoute'
 import Payments from './Payments'
 import Login from './Login'
-import Menu from './Menu'
+import { Card } from './Menu'
 import './App.css'
 
 // views
@@ -33,7 +33,7 @@ const App = () => {
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
                             <Route exact path="/login" component={Login} />
-                            <Route exact path="/menu" component={Menu} />
+                            <Route exact path="/menu" component={Card} />
                             <Route exact path="/loading" component={Loader} />
                             <Route
                                 exact

@@ -189,16 +189,49 @@ class CardBack extends React.Component {
 class Card extends React.Component {
     render() {
         return (
-            <div className="card-container">
-                <div className="card-body">
-                    <CardBack />
+            <>
+                <div className="column">
+                    <div className="card-container">
+                        <div className="card-body">
+                            <CardBack />
 
-                    <CardFront />
+                            <CardFront />
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div className="column">
+                    <div className="card-container">
+                        <div className="card-body">
+                            <CardBack />
+
+                            <CardFront />
+                        </div>
+                    </div>
+                </div>
+                <div className="column">
+                    <div className="card-container">
+                        <div className="card-body">
+                            <CardBack />
+
+                            <CardFront />
+                        </div>
+                    </div>
+                </div>
+                <div className="column">
+                    <div className="card-container">
+                        <div className="card-body">
+                            <CardBack />
+
+                            <CardFront />
+                        </div>
+                    </div>
+                </div>
+            </>
         )
     }
 }
 
 // Render Card component
-ReactDOM.render(<Card />, cardContainer)
+//ReactDOM.render(<Card />, cardContainer)
+
+export { Card }
