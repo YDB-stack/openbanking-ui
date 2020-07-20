@@ -12,6 +12,7 @@ import Loader from './Loader'
 import Redirecting from './Redirecting'
 import PrivateRoute from './PrivateRoute'
 import Payments from './Payments'
+import Login from './Login'
 import './App.css'
 
 // views
@@ -30,6 +31,7 @@ const App = () => {
                     <BrowserRouter>
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
+                            <Route exact path="/login" component={Login} />
                             <Route exact path="/loading" component={Loader} />
                             <Route
                                 exact

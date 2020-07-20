@@ -7,13 +7,13 @@ import { setAccountId } from '@openbanking/ui-data/src/actions/account'
 const Dashboard = () => {
     const dispatch = useDispatch()
 
-    useEffect(()=>{
+    useEffect(() => {
         //remove access_token to start journey again
         localStorage.removeItem('token')
         localStorage.removeItem('refresh_token')
-        dispatch(setAccessToken(null,null))
+        dispatch(setAccessToken(null, null))
         dispatch(setAccountId(null))
-    },[])
+    }, [])
 
     function setType(type) {
         // initialize aisp/pisp journey to get authorization URL
@@ -41,7 +41,8 @@ const Dashboard = () => {
                             </button>
                             <button
                                 className="journeyBtn"
-                                // to do 
+                                // to do
+                                onClick={() => setType('pisp')}
                             >
                                 Payment Initiation Service Provider (PISP)
                             </button>
