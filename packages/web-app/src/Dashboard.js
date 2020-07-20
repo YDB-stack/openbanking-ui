@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { initializeJourney } from '@openbanking/ui-data/lib/services/auth-service'
 import { setAccessToken } from '@openbanking/ui-data/lib/actions/auth'
 import { setAccountId } from '@openbanking/ui-data/src/actions/account'
+import { CardBtn } from './Menu'
 
 const Dashboard = () => {
     const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const Dashboard = () => {
                 <div className="row">
                     <div className="col-sm">
                         <div className="text">
-                            <h3>Open Banking</h3>
+                            {/*                        <h3>Open Banking</h3>*/}
                         </div>
                     </div>
                 </div>
@@ -34,10 +35,10 @@ const Dashboard = () => {
                     <div className="col-sm">
                         <div className="journeyBtns">
                             <button
-                                className="journeyBtn"
+                                className="btn btn-primary"
                                 onClick={() => setType('aisp')}
                             >
-                                Account Information Service Provider (AISP)
+                                Add account
                             </button>
                             <button
                                 className="journeyBtn"

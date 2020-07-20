@@ -1,4 +1,16 @@
 import React from 'react'
+import Dashboard from './Dashboard'
+import {
+    getAccountList,
+    getAccountById,
+    getAccountBalances,
+    getAccountTransactions,
+    getAccountDirectDebits,
+    getAccountProducts,
+    getAccountStandingOrders,
+} from '@openbanking/ui-data/lib/services/account-service'
+
+import { useDispatch, useSelector } from 'react-redux'
 
 import ReactDOM from 'react-router-dom'
 
@@ -40,7 +52,7 @@ class CardTextarea extends React.Component {
 }
 
 // React component for form button
-class CardBtn extends React.Component {
+export class CardBtn extends React.Component {
     render() {
         return (
             <fieldset>
@@ -136,27 +148,9 @@ class CardFront3 extends React.Component {
                         <div className="col-xs-6"></div>
 
                         <div className="col-xs-6 side-front-content">
-                            <h2>Czech based</h2>
+                            <h1>Pay your rent</h1>
 
-                            <h1>UI/UX Designer</h1>
-
-                            <p>
-                                Andrey is driven by turning ideas into scalable
-                                and and empowering experiences that solve real
-                                life problems.
-                            </p>
-
-                            <p>
-                                He is currently the founder of Dvorak Media.
-                                Previously, Andrey was a product designer at
-                                Dropbox.
-                            </p>
-
-                            <p>
-                                Over the years, Michael has been priviledged to
-                                have worked with Adobe, Evernote, Square and
-                                more.
-                            </p>
+                            <p>Pay your rent with the click of a button!</p>
                         </div>
                     </div>
                 </div>
@@ -174,26 +168,11 @@ class CardFront4 extends React.Component {
                         <div className="col-xs-6"></div>
 
                         <div className="col-xs-6 side-front-content">
-                            <h2>Czech based</h2>
-
-                            <h1>UI/UX Designer</h1>
+                            <h1>Credit scores and offers</h1>
 
                             <p>
-                                Andrey is driven by turning ideas into scalable
-                                and and empowering experiences that solve real
-                                life problems.
-                            </p>
-
-                            <p>
-                                He is currently the founder of Dvorak Media.
-                                Previously, Andrey was a product designer at
-                                Dropbox.
-                            </p>
-
-                            <p>
-                                Over the years, Michael has been priviledged to
-                                have worked with Adobe, Evernote, Square and
-                                more.
+                                Check your credit score and avail exciting
+                                offers including housing loans!
                             </p>
                         </div>
                     </div>
@@ -204,72 +183,35 @@ class CardFront4 extends React.Component {
 }
 
 // React component for the back side of the card
-class CardBack extends React.Component {
+/*class CardBack extends React.Component {
     render() {
+
+        var data = useSelector((state) => state.app.data);
+        const dispatch = useDispatch()
+        getAccountList(dispatch);
         return (
             <div className="card-side side-back">
                 <div className="container-fluid">
-                    <h1>Your Bank accounts</h1>
-
-                    <form formAction="" className="card-form">
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactFirstName"
-                                    id="contactFirstName"
-                                    type="text"
-                                    placeholder="Your first name"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactLastName"
-                                    id="contactLastName"
-                                    type="text"
-                                    placeholder="Your last name"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactEmail"
-                                    id="contactEmail"
-                                    type="email"
-                                    placeholder="Your email address"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactSubject"
-                                    id="contactSubject"
-                                    type="text"
-                                    placeholder="Subject"
-                                />
-                            </div>
-                        </div>
-
-                        <CardTextarea
-                            name="contactMessage"
-                            id="contactMessage"
-                            placeholder="Your message"
-                        />
-
-                        <CardBtn
-                            className="btn btn-primary"
-                            type="submit"
-                            value="Send message"
-                        />
-                    </form>
-
-                    <CardProfileLinks />
-                </div>
+                   <Dashboard />
+                <h1> {data} </h1>
+            </div>
             </div>
         )
     }
+}*/
+
+const CardBack = (props) => {
+    var data = useSelector((state) => state.app.data)
+    const dispatch = useDispatch()
+    getAccountList(dispatch)
+    return (
+        <div className="card-side side-back">
+            <div className="container-fluid">
+                <Dashboard />
+                <h1> {data} </h1>
+            </div>
+        </div>
+    )
 }
 
 class CardBack2 extends React.Component {
@@ -281,56 +223,11 @@ class CardBack2 extends React.Component {
 
                     <form formAction="" className="card-form">
                         <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactFirstName"
-                                    id="contactFirstName"
-                                    type="text"
-                                    placeholder="Your first name"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactLastName"
-                                    id="contactLastName"
-                                    type="text"
-                                    placeholder="Your last name"
-                                />
-                            </div>
+                            <CardBtn
+                                className="btn btn-primary"
+                                value="Search"
+                            />
                         </div>
-
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactEmail"
-                                    id="contactEmail"
-                                    type="email"
-                                    placeholder="Your email address"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactSubject"
-                                    id="contactSubject"
-                                    type="text"
-                                    placeholder="Subject"
-                                />
-                            </div>
-                        </div>
-
-                        <CardTextarea
-                            name="contactMessage"
-                            id="contactMessage"
-                            placeholder="Your message"
-                        />
-
-                        <CardBtn
-                            className="btn btn-primary"
-                            type="submit"
-                            value="Send message"
-                        />
                     </form>
 
                     <CardProfileLinks />
