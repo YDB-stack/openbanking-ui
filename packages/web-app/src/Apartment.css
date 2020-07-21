@@ -1,0 +1,10 @@
+.box {
+    margin: 30px;
+    width: 20%;
+}
+
+.parent-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

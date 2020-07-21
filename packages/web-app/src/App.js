@@ -6,7 +6,10 @@ import ErrorBoundary from '@openbanking/ui-common/lib/ErrorBoundary'
 import Loading from '@openbanking/ui-common/lib/Loading'
 import Error from '@openbanking/ui-common/lib/Error'
 import NotFound from '@openbanking/ui-common/lib/NotFound'
+import Accounts from './Accounts'
+import Apartment from './Apartment'
 //import Accounts from './Accounts'
+//import Accounts from './Accounts1'
 import { Card as CD } from './AccountsCards'
 import Dashboard from './Dashboard'
 import Loader from './Loader'
@@ -14,7 +17,7 @@ import Redirecting from './Redirecting'
 import PrivateRoute from './PrivateRoute'
 import Payments from './Payments'
 import Login from './Login'
-import { Card } from './Menu'
+import { Menu } from './Menu'
 import './App.css'
 
 import {
@@ -26,6 +29,7 @@ import {
     getAccountProducts,
     getAccountStandingOrders,
 } from '@openbanking/ui-data/lib/services/account-service'
+import Apartments from './Apartment'
 
 // views
 
@@ -50,8 +54,19 @@ const App = () => {
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
                             <Route exact path="/login" component={Login} />
-                            <Route exact path="/menu" component={Card} />
+                            <Route exact path="/menu" component={Menu} />
+                            <Route
+                                exact
+                                path="/payments"
+                                component={Payments}
+                            />
                             <Route exact path="/loading" component={Loader} />
+                            <Route
+                                exact
+                                path="/apartments"
+                                component={Apartment}
+                            />
+
                             <Route
                                 exact
                                 path="/redirecting"
@@ -60,7 +75,7 @@ const App = () => {
                             <PrivateRoute
                                 exact
                                 path="/aisp"
-                                render={() => <CD />}
+                                render={() => <Accounts />}
                             />
                             <PrivateRoute
                                 exact

@@ -11,39 +11,90 @@ import {
 } from '@openbanking/ui-data/lib/services/account-service'
 import InfoDisplay from '@openbanking/ui-common/lib/InfoDisplay'
 import './Accounts.css'
+import { Menu } from './Menu'
 
 //accounts api list
-
 const Accounts = () => {
+    console.log('11')
     const data = useSelector((state) => state.app.data)
     const accountId = useSelector((state) => state.account.accountId)
 
-    useEffect(() => {
-        getAccountList(dispatch)
-    }, [])
-
+    console.log('dispatch')
     const dispatch = useDispatch()
 
+    useEffect(() => getAccountList(dispatch), [])
+
     return (
-        <>
-            <div className="mainContainer">
-                <h2 className="pageTitle">
-                    {data !== null
-                        ? data.Data.Account.map((item) => {
-                              if (item !== null)
-                                  return (
-                                      <>
-                                          <br /> {item.Nickname.concat('\n')}
-                                      </>
-                                  )
-                          })
-                        : null}
-                </h2>
+        <div className="mainContainer">
+            <h2 className="pageTitle">AISP Information</h2>
+            <div className="apiContainer">
+                <div className="btnContainer">
+                    <button
+                        className="buttonLinks"
+                        onClick={() => {
+                            console.log('Acc List')
+                            getAccountList(dispatch)
+                        }}
+                    >
+                        Get Account List
+                    </button>
+                    <button
+                        className="buttonLinks"
+                        onClick={() => getAccountById(dispatch, accountId)}
+                    >
+                        Get Account By Id
+                    </button>
+                    <button
+                        className="buttonLinks"
+                        onClick={() => {
+                            console.log('Ba1ance ')
+                            getAccountBalances(dispatch, accountId)
+                        }}
+                    >
+                        Get Account Balances
+                    </button>
+                    {/*   <button
+                        className="buttonLinks"
+                        onClick={() =>
+                            getAccountDirectDebits(dispatch, accountId)
+                        }
+                    >
+                        Get Account Direct Debits
+                    </button>
+                    */}
+                    <button
+                        className="buttonLinks"
+                        onClick={() =>
+                            getAccountTransactions(dispatch, accountId)
+                        }
+                    >
+                        Get Account Transactions
+                    </button>
+                    <button
+                        className="buttonLinks"
+                        onClick={() => getAccountProducts(dispatch, accountId)}
+                    >
+                        Get Account Products
+                    </button>
+                    {/*
+                    <button
+                        className="buttonLinks"
+                        onClick={() =>
+                            getAccountStandingOrders(dispatch, accountId)
+                        }
+                    >
+                        Get Account Standing Orders
+                    </button>
+                    */}
+                </div>
+
+                <div className="displayInfo">
+                    <InfoDisplay data={data} />
+                    {console.log('DATAAAAAA')}
+                    {console.log(data)}
+                </div>
             </div>
-            <a href="/menu">
-                <button className="btn btn-primary">Menu</button>
-            </a>
-        </>
+        </div>
     )
 }
 

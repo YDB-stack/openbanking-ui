@@ -8,7 +8,8 @@ export function createDomesticPayment(dispatch, payload) {
         { payload },
         {},
         function (response) {
-            // to do 
+            // to do
+            dispatch(setData(response))
         }
     )
 }
@@ -21,7 +22,8 @@ export function getDomesticPaymentStatus(dispatch) {
         null,
         {},
         function (response) {
-           // to do 
+            // to do
+            dispatch(setData(response))
         }
     )
 }

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Dashboard from './Dashboard'
+import Apartments from './Apartment'
 import {
     getAccountList,
     getAccountById,
@@ -15,6 +16,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import ReactDOM from 'react-router-dom'
 
 import './Menu.css'
+
+import { initializeJourney } from '@openbanking/ui-data/lib/services/auth-service'
+import { setAccessToken } from '@openbanking/ui-data/lib/actions/auth'
+import { setAccountId } from '@openbanking/ui-data/src/actions/account'
 
 const cardContainer = document.querySelector('.react-card')
 
@@ -125,11 +130,11 @@ class CardFront2 extends React.Component {
                         <div className="col-xs-6"></div>
 
                         <div className="col-xs-6 side-front-content">
-                            <h1>Find Rentals/Buy a home</h1>
+                            <h1 align="center">Find Rentals/Buy a home</h1>
 
                             <p>
                                 Check out Apartment listings at your preferred
-                                location at affordable prices!
+                                location based on your lifestyle at your budget!
                             </p>
                         </div>
                     </div>
@@ -148,9 +153,13 @@ class CardFront3 extends React.Component {
                         <div className="col-xs-6"></div>
 
                         <div className="col-xs-6 side-front-content">
-                            <h1>Pay your rent</h1>
+                            <h1 align="center">Pay your rent</h1>
 
-                            <p>Pay your rent with the click of a button!</p>
+                            <p align="center">
+                                Pay your rent with the click of a button!
+                                <br />
+                                (even with your credit card)
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -168,11 +177,13 @@ class CardFront4 extends React.Component {
                         <div className="col-xs-6"></div>
 
                         <div className="col-xs-6 side-front-content">
-                            <h1>Credit scores and offers</h1>
+                            <h1 align="center">Credit scores and offers</h1>
 
-                            <p>
-                                Check your credit score and avail exciting
-                                offers including housing loans!
+                            <p align="center">
+                                Now generate an exclusive credit rating based on
+                                your rent paying history <br />
+                                and <br />
+                                Avail exciting offers including housing loans!
                             </p>
                         </div>
                     </div>
@@ -206,6 +217,7 @@ class CardBack extends React.Component {
             <div className="card-side side-back">
                 <div className="container-fluid">
                     <h1>View/Add your bank accounts</h1>
+                    {this.props.data ? this.props.data[0].Nickname : null}
                     <div className="row">
                         <Dashboard />
                     </div>
@@ -222,14 +234,14 @@ class CardBack2 extends React.Component {
                 <div className="container-fluid">
                     <h1>Search for your Dream Home</h1>
 
-                    <form formAction="" className="card-form">
-                        <div className="row">
+                    <div className="">
+                        <a href="/apartments">
                             <CardBtn
                                 className="btn btn-primary"
                                 value="Search"
                             />
-                        </div>
-                    </form>
+                        </a>
+                    </div>
 
                     <CardProfileLinks />
                 </div>
@@ -238,72 +250,69 @@ class CardBack2 extends React.Component {
     }
 }
 
-class CardBack3 extends React.Component {
+/*class CardBack3 extends React.Component {
     render() {
+        const dispatch = useDispatch()
+    function setType(type) {
+    // initialize aisp/pisp journey to get authorization URL
+    initializeJourney(dispatch, type)
+}
         return (
             <div className="card-side side-back">
                 <div className="container-fluid">
-                    <h1>Let's get in touch!</h1>
+                    <h1>Pay your rent now!</h1>
 
-                    <form formAction="" className="card-form">
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactFirstName"
-                                    id="contactFirstName"
-                                    type="text"
-                                    placeholder="Your first name"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactLastName"
-                                    id="contactLastName"
-                                    type="text"
-                                    placeholder="Your last name"
-                                />
-                            </div>
+                        <div className="">
+                            
+                            
+                            <CardBtn
+                                className="btn btn-primary"
+                                value="Search"
+                                onClick={() => setType('pisp')}
+                            />
                         </div>
-
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactEmail"
-                                    id="contactEmail"
-                                    type="email"
-                                    placeholder="Your email address"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactSubject"
-                                    id="contactSubject"
-                                    type="text"
-                                    placeholder="Subject"
-                                />
-                            </div>
-                        </div>
-
-                        <CardTextarea
-                            name="contactMessage"
-                            id="contactMessage"
-                            placeholder="Your message"
-                        />
-
-                        <CardBtn
-                            className="btn btn-primary"
-                            type="submit"
-                            value="Send message"
-                        />
-                    </form>
 
                     <CardProfileLinks />
                 </div>
             </div>
+            
+
         )
     }
+}*/
+
+function CardBack3(props) {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        //remove access_token to start journey again
+        localStorage.removeItem('token')
+        localStorage.removeItem('refresh_token')
+        dispatch(setAccessToken(null, null))
+        dispatch(setAccountId(null))
+    }, [])
+    function setType(type) {
+        // initialize aisp/pisp journey to get authorization URL
+        initializeJourney(dispatch, type)
+    }
+    return (
+        <div className="card-side side-back">
+            <div className="container-fluid">
+                <h1>Pay your rent now!</h1>
+
+                <div className="">
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => setType('pisp')}
+                    >
+                        Pay now
+                    </button>
+                </div>
+
+                <CardProfileLinks />
+            </div>
+        </div>
+    )
 }
 
 class CardBack4 extends React.Component {
@@ -311,61 +320,7 @@ class CardBack4 extends React.Component {
         return (
             <div className="card-side side-back">
                 <div className="container-fluid">
-                    <h1>Let's get in touch!</h1>
-
-                    <form formAction="" className="card-form">
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactFirstName"
-                                    id="contactFirstName"
-                                    type="text"
-                                    placeholder="Your first name"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactLastName"
-                                    id="contactLastName"
-                                    type="text"
-                                    placeholder="Your last name"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactEmail"
-                                    id="contactEmail"
-                                    type="email"
-                                    placeholder="Your email address"
-                                />
-                            </div>
-
-                            <div className="col-xs-6">
-                                <CardInput
-                                    name="contactSubject"
-                                    id="contactSubject"
-                                    type="text"
-                                    placeholder="Subject"
-                                />
-                            </div>
-                        </div>
-
-                        <CardTextarea
-                            name="contactMessage"
-                            id="contactMessage"
-                            placeholder="Your message"
-                        />
-
-                        <CardBtn
-                            className="btn btn-primary"
-                            type="submit"
-                            value="Send message"
-                        />
-                    </form>
+                    <h1>Coming soon!</h1>
 
                     <CardProfileLinks />
                 </div>
@@ -375,14 +330,18 @@ class CardBack4 extends React.Component {
 }
 
 // React component for the card (main component)
-class Card extends React.Component {
+class Menu extends React.Component {
+    //    const dispatch = useDispatch()
+
     render() {
+        console.log(this.props.data)
+
         return (
             <>
                 <div className="column">
                     <div className="card-container">
                         <div className="card-body">
-                            <CardBack />
+                            <CardBack data={this.props.data} />
 
                             <CardFront />
                         </div>
@@ -423,4 +382,4 @@ class Card extends React.Component {
 // Render Card component
 //ReactDOM.render(<Card />, cardContainer)
 
-export { Card }
+export { Menu }
