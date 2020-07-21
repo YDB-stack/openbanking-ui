@@ -1,12 +1,13 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import Header from '@openbanking/ui-common/lib/Header'
 import ErrorBoundary from '@openbanking/ui-common/lib/ErrorBoundary'
 import Loading from '@openbanking/ui-common/lib/Loading'
 import Error from '@openbanking/ui-common/lib/Error'
 import NotFound from '@openbanking/ui-common/lib/NotFound'
-import Accounts from './Accounts'
+//import Accounts from './Accounts'
+import { Card as CD } from './AccountsCards'
 import Dashboard from './Dashboard'
 import Loader from './Loader'
 import Redirecting from './Redirecting'
@@ -16,12 +17,28 @@ import Login from './Login'
 import { Card } from './Menu'
 import './App.css'
 
+import {
+    getAccountList,
+    getAccountById,
+    getAccountBalances,
+    getAccountTransactions,
+    getAccountDirectDebits,
+    getAccountProducts,
+    getAccountStandingOrders,
+} from '@openbanking/ui-data/lib/services/account-service'
+
 // views
 
 const App = () => {
     const loading = useSelector((state) => state.common.loading)
     const error = useSelector((state) => state.common.error)
+    /*   const data = useSelector((state) => state.app.data)
 
+    useEffect(() => {
+        getAccountList(dispatch)
+    }, [])
+    const dispatch = useDispatch()
+    */
     return (
         <div className="app">
             {loading && <Loading />}
@@ -43,7 +60,7 @@ const App = () => {
                             <PrivateRoute
                                 exact
                                 path="/aisp"
-                                render={() => <Accounts />}
+                                render={() => <CD />}
                             />
                             <PrivateRoute
                                 exact

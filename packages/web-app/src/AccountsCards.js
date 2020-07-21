@@ -1,14 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Dashboard from './Dashboard'
-import {
-    getAccountList,
-    getAccountById,
-    getAccountBalances,
-    getAccountTransactions,
-    getAccountDirectDebits,
-    getAccountProducts,
-    getAccountStandingOrders,
-} from '@openbanking/ui-data/lib/services/account-service'
+import { getAccountList } from '@openbanking/ui-data/lib/services/account-service'
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -200,19 +192,40 @@ class CardFront4 extends React.Component {
     }
 }*/
 
-class CardBack extends React.Component {
-    render() {
-        return (
-            <div className="card-side side-back">
-                <div className="container-fluid">
-                    <h1>View/Add your bank accounts</h1>
-                    <div className="row">
-                        <Dashboard />
-                    </div>
+const CardBack = (props) => {
+    /*   const data = useSelector((state) => state.app.data)
+    const accountId = useSelector((state) => state.account.accountId)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        getAccountList(dispatch)
+    }, [])
+    */
+    var data = props.data
+
+    return (
+        <div className="card-side side-back">
+            <div className="mainContainer">
+                <h2 className="pageTitle">
+                    {data !== null
+                        ? data.Data.Account.map((item) => {
+                              if (item !== null)
+                                  return (
+                                      <>
+                                          <br /> {item.Nickname.concat('\n')}
+                                      </>
+                                  )
+                          })
+                        : null}
+                </h2>
+            </div>
+            <div className="container-fluid">
+                <h1>View/Add your bank accounts</h1>
+                <div className="row">
+                    <Dashboard />
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 class CardBack2 extends React.Component {
@@ -375,49 +388,53 @@ class CardBack4 extends React.Component {
 }
 
 // React component for the card (main component)
-class Card extends React.Component {
-    render() {
-        return (
-            <>
-                <div className="column">
-                    <div className="card-container">
-                        <div className="card-body">
-                            <CardBack />
+const Card = () => {
+    const data = useSelector((state) => state.app.data)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        getAccountList(dispatch)
+    }, [])
 
-                            <CardFront />
-                        </div>
+    return (
+        <>
+            <div className="column">
+                <div className="card-container">
+                    <div className="card-body">
+                        <CardBack data={data} />
+
+                        <CardFront />
                     </div>
                 </div>
-                <div className="column">
-                    <div className="card-container">
-                        <div className="card-body">
-                            <CardBack2 />
+            </div>
+            <div className="column">
+                <div className="card-container">
+                    <div className="card-body">
+                        <CardBack2 />
 
-                            <CardFront2 />
-                        </div>
+                        <CardFront2 />
                     </div>
                 </div>
-                <div className="column">
-                    <div className="card-container">
-                        <div className="card-body">
-                            <CardBack3 />
+            </div>
+            <div className="column">
+                <div className="card-container">
+                    <div className="card-body">
+                        <CardBack3 />
 
-                            <CardFront3 />
-                        </div>
+                        <CardFront3 />
                     </div>
                 </div>
-                <div className="column">
-                    <div className="card-container">
-                        <div className="card-body">
-                            <CardBack4 />
+            </div>
+            <div className="column">
+                <div className="card-container">
+                    <div className="card-body">
+                        <CardBack4 />
 
-                            <CardFront4 />
-                        </div>
+                        <CardFront4 />
                     </div>
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 }
 
 // Render Card component

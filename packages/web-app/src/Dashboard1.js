@@ -26,12 +26,26 @@ const Dashboard = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-sm">
+                        <div className="text">
+                            {/*                        <h3>Open Banking</h3>*/}
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">
                         <div className="journeyBtns">
                             <button
                                 className="btn btn-primary"
                                 onClick={() => setType('aisp')}
                             >
                                 Add account
+                            </button>
+                            <button
+                                className="journeyBtn"
+                                // to do
+                                onClick={() => setType('pisp')}
+                            >
+                                Payment Initiation Service Provider (PISP)
                             </button>
                         </div>
                     </div>
