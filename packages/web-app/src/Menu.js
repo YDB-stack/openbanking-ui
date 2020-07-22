@@ -99,22 +99,13 @@ class CardFront extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-xs-6"></div>
+                <div className="col-xs-6"></div>
 
-                        <div className="col-xs-6 side-front-content">
-                            <h1 align="center">
-                                {' '}
-                                &emsp; &emsp; &emsp; &emsp;
-                                &emsp;&emsp;&emsp;&emsp;&emsp;Your Bank accounts
-                            </h1>
-
-                            <p>
-                                View and add your bank accounts in one place !
-                            </p>
-                        </div>
-                    </div>
+                <div className="col-xs-6 side-front-content">
+                    <h1 align="center">Your Bank accounts </h1>
+                    <p align="center">
+                        View and add your bank accounts in one place !
+                    </p>
                 </div>
             </div>
         )
@@ -125,19 +116,14 @@ class CardFront2 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-xs-6"></div>
+                <div className="col-xs-6"></div>
 
-                        <div className="col-xs-6 side-front-content">
-                            <h1 align="center">Find Rentals/Buy a home</h1>
-
-                            <p>
-                                Check out Apartment listings at your preferred
-                                location based on your lifestyle at your budget!
-                            </p>
-                        </div>
-                    </div>
+                <div className="col-xs-6 side-front-content">
+                    <h1 align="center">Find Rentals/Buy a home</h1>
+                    <p align="center">
+                        Check out Apartment listings at your preferred location
+                        based on your lifestyle at your budget!
+                    </p>
                 </div>
             </div>
         )
@@ -148,20 +134,13 @@ class CardFront3 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-xs-6"></div>
+                <div className="col-xs-6"></div>
 
-                        <div className="col-xs-6 side-front-content">
-                            <h1 align="center">Pay your rent</h1>
-
-                            <p align="center">
-                                Pay your rent with the click of a button!
-                                <br />
-                                (even with your credit card)
-                            </p>
-                        </div>
-                    </div>
+                <div className="col-xs-6 side-front-content">
+                    <h1 align="center">Pay your rent</h1>
+                    <p align="center">
+                        Pay your rent with the click of a button!
+                    </p>
                 </div>
             </div>
         )
@@ -172,21 +151,16 @@ class CardFront4 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-xs-6"></div>
+                <div className="col-xs-6"></div>
 
-                        <div className="col-xs-6 side-front-content">
-                            <h1 align="center">Credit scores and offers</h1>
-
-                            <p align="center">
-                                Now generate an exclusive credit rating based on
-                                your rent paying history <br />
-                                and <br />
-                                Avail exciting offers including housing loans!
-                            </p>
-                        </div>
-                    </div>
+                <div className="col-xs-6 side-front-content">
+                    <h1 align="center">Credit scores and offers</h1>
+                    <p align="center">
+                        Now generate an exclusive credit rating based on your
+                        rent paying history <br />
+                        and <br />
+                        Avail exciting offers including housing loans!
+                    </p>
                 </div>
             </div>
         )
@@ -218,9 +192,7 @@ class CardBack extends React.Component {
                 <div className="container-fluid">
                     <h1>View/Add your bank accounts</h1>
                     {this.props.data ? this.props.data[0].Nickname : null}
-                    <div className="row">
-                        <Dashboard />
-                    </div>
+                    <Dashboard />
                 </div>
             </div>
         )
@@ -302,15 +274,10 @@ function CardBack3(props) {
 
                 <div className="">
                     <a
-                        href="https://www.nwolb.com/Default.aspx?CookieCheck=2020-07-22T03:55:10"
+                        href="https://www.nwolb.com/Default.aspx?CookieCheck=2020-07-22T05:06:52"
                         target="_blank"
                     >
-                        <button
-                            className="btn btn-primary"
-                            onClick={() => setType('pisp')}
-                        >
-                            Pay now
-                        </button>
+                        <button className="btn btn-primary">Pay now</button>
                     </a>
                 </div>
 
