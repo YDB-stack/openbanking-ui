@@ -27,10 +27,25 @@ export default function InfoDisplay({ data = {} }) {
     const dispatch = useDispatch()
 
     var accounts = data.Data.Account
+
     var balance = data.Data.Balance
+
     var transaction = data.Data.Transaction
 
-    if (accounts) return <ListAccounts accounts={accounts} />
-    else if (balance) return <ShowBalance balance={balance} />
-    else if (transaction) return <Showtransactions transaction={transaction} />
+    if (accounts) {
+        console.log('Setting account')
+        console.log(JSON.stringify(accounts))
+        localStorage.setItem('accounts', JSON.stringify(accounts))
+        console.log('Account setttt')
+        return <ListAccounts accounts={accounts} />
+    } else if (balance) {
+        console.log(balance)
+        console.log('Balance storing locally')
+        localStorage.setItem('balance', JSON.stringify(balance))
+        console.log(JSON.stringify(balance))
+        return <ShowBalance balance={balance} />
+    } else if (transaction) {
+        localStorage.setItem('transaction', JSON.stringify(transaction))
+        return <Showtransactions transaction={transaction} />
+    }
 }

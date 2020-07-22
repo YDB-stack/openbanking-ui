@@ -23,6 +23,7 @@ import { setAccountId } from '@openbanking/ui-data/src/actions/account'
 import { Opacity } from '@material-ui/icons'
 
 const cardContainer = document.querySelector('.react-card')
+import InfoDisplay from 'C:\\Users\\Mukund Ayodhya\\Documents\\GitHub\\openbanking-ui\\packages\\ui-common\\src\\InfoDisplay'
 
 // React component for form inputs
 class CardInput extends React.Component {
@@ -206,30 +207,13 @@ class CardFront4 extends React.Component {
 
 class CardBack extends React.Component {
     render() {
-        console.log('inside CardBack1')
-        var accounts = localStorage.getItem('accounts')
-        var balance = localStorage.getItem('balance')
-        accounts = JSON.parse(accounts)
-        balance = JSON.parse(balance)
-        console.log('accounts====')
-        console.log(accounts)
-        console.log('balance===')
-        console.log(balance)
+        const accounts = localStorage.getItem('accounts')
         return (
             <div className="card-side side-back">
                 <div className="container-fluid">
                     <h1>View/Add your bank accounts</h1>
-                    {accounts !== null
-                        ? accounts.map((item) => {
-                              return (
-                                  <>
-                                      <br />
-                                      {item.Nickname}
-                                      <br />
-                                  </>
-                              )
-                          })
-                        : 'You have not added any accounts yet!'}
+                    {accounts ? accounts[0].Nickname : null}
+                    {this.props.data ? this.props.data[0].Nickname : null}
                     <Dashboard />
                 </div>
             </div>
@@ -344,7 +328,7 @@ class Menu extends React.Component {
     //    const dispatch = useDispatch()
 
     render() {
-        console.log('Inside Menu')
+        console.log(this.props.data)
 
         return (
             <>

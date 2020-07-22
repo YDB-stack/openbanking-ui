@@ -5,16 +5,21 @@ import './Apartment.css'
 
 //accounts api list
 
+var accountCount
+var listing = []
 class Apartment extends React.Component {
     constructor() {
         super()
 
+        var accounts = localStorage.getItem('accounts')
+        accounts = JSON.parse(accounts)
+        accountCount = accounts.length
+
         this.state = {
             value: 'none',
-            data: null,
+            data: [],
         }
     }
-
     handleClick = (args) => {
         var city = this.state.value
 
@@ -31,6 +36,24 @@ class Apartment extends React.Component {
                 console.log(response.statusText)
                 console.log(response.headers)
                 console.log(response.config)
+
+                var listingLen = response.data.listing.length
+                var tempLen
+                if (accountCount >= 3) {
+                    tempLen = listingLen - 1
+                } else {
+                    tempLen = accountCount * Math.ceil(listingLen / 3)
+                }
+
+                while (tempLen >= 0) {
+                    listing[tempLen] = response.data.listing[tempLen]
+                    tempLen--
+                }
+                console.log(listing)
+                console.log('setting state')
+                this.setState({ data: listing })
+                console.log('this.state.dataaaaaa')
+                console.log(this.state.data)
             })
     }
     handleChange(event) {
@@ -61,8 +84,8 @@ class Apartment extends React.Component {
                     </button>
                 </div>
                 <div className="parent-box">
-                    {this.state.data
-                        ? this.state.data.listing.map((item) => {
+                    {listing
+                        ? listing.map((item) => {
                               return (
                                   <div className="box">
                                       <p align="center">
