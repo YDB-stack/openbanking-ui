@@ -52,7 +52,7 @@ const App = () => {
                 <div className="section-content">
                     <BrowserRouter>
                         <Switch>
-                            <Route exact path="/" component={Dashboard} />
+                            <Route exact path="/" component={Login} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/menu" component={Menu} />
                             <Route
