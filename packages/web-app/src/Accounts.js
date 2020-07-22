@@ -12,9 +12,36 @@ import {
 import InfoDisplay from '@openbanking/ui-common/lib/InfoDisplay'
 import './Accounts.css'
 import { Menu } from './Menu'
+import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles'
 
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        marginTop: theme.spacing(7),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing(3),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '100%',
+    },
+}))
 //accounts api list
 const Accounts = () => {
+    const classes = useStyles()
     console.log('11')
     const data = useSelector((state) => state.app.data)
     const accountId = useSelector((state) => state.account.accountId)
@@ -70,13 +97,13 @@ const Accounts = () => {
                     >
                         Get Account Transactions
                     </button>
-                    <button
+                    {/* <button
                         className="buttonLinks"
                         onClick={() => getAccountProducts(dispatch, accountId)}
                     >
                         Get Account Products
                     </button>
-                    {/*
+                    
                     <button
                         className="buttonLinks"
                         onClick={() =>
@@ -86,6 +113,19 @@ const Accounts = () => {
                         Get Account Standing Orders
                     </button>
                     */}
+                    <a href="/menu">
+                        <Button
+                            // type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            preventDefault
+                            className={classes.submit}
+                            //onClick={Card}
+                        >
+                            Back to menu
+                        </Button>
+                    </a>
                 </div>
 
                 <div className="displayInfo">

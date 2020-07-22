@@ -301,12 +301,17 @@ function CardBack3(props) {
                 <h1>Pay your rent now!</h1>
 
                 <div className="">
-                    <button
-                        className="btn btn-primary"
-                        onClick={() => setType('pisp')}
+                    <a
+                        href="https://www.nwolb.com/Default.aspx?CookieCheck=2020-07-22T03:55:10"
+                        target="_blank"
                     >
-                        Pay now
-                    </button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => setType('pisp')}
+                        >
+                            Pay now
+                        </button>
+                    </a>
                 </div>
 
                 <CardProfileLinks />
