@@ -1,19 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import Apartments from './Apartment'
-import {
-    getAccountList,
-    getAccountById,
-    getAccountBalances,
-    getAccountTransactions,
-    getAccountDirectDebits,
-    getAccountProducts,
-    getAccountStandingOrders,
-} from '@openbanking/ui-data/lib/services/account-service'
-
-import { useDispatch, useSelector } from 'react-redux'
-
-import ReactDOM from 'react-router-dom'
 
 import './Menu.css'
 
@@ -125,7 +113,10 @@ class CardFront2 extends React.Component {
         return (
             <div className="card-side side-front">
                 <div className="topDiv" style={{ background: '#00B5BE' }}>
-                    <div className="col-xs-6 side-front-content">
+                    <div
+                        className="col-xs-6 side-front-content"
+                        style={{ color: 'white' }}
+                    >
                         <h1 align="center">Find Rentals/Buy a home</h1>
                         <p align="center">
                             Check out Apartment listings at your preferred
@@ -147,7 +138,10 @@ class CardFront3 extends React.Component {
         return (
             <div className="card-side side-front">
                 <div className="topDiv" style={{ backgroundColor: '#FF2D5D' }}>
-                    <div className="col-xs-6 side-front-content">
+                    <div
+                        className="col-xs-6 side-front-content"
+                        style={{ color: 'white' }}
+                    >
                         <h1 align="center">Pay your rent</h1>
                         <p align="center">
                             Pay your rent with the click of a button!
@@ -168,7 +162,10 @@ class CardFront4 extends React.Component {
         return (
             <div className="card-side side-front">
                 <div className="topDiv" style={{ backgroundColor: '#FFAD00' }}>
-                    <div className="col-xs-6 side-front-content">
+                    <div
+                        className="col-xs-6 side-front-content"
+                        style={{ color: 'white' }}
+                    >
                         <h1 align="center">Credit scores and offers</h1>
                         <p align="center">
                             Now generate an exclusive credit rating based on
@@ -291,47 +288,140 @@ class CardBack2 extends React.Component {
     }
 }*/
 
-function CardBack3(props) {
-    const dispatch = useDispatch()
+class CardBack3 extends React.Component {
+    constructor() {
+        super()
+        this.date = null
+        this.rent = null
+        this.displayButton = {
+            display: 'none',
+        }
 
-    useEffect(() => {
-        //remove access_token to start journey again
-        localStorage.removeItem('token')
-        localStorage.removeItem('refresh_token')
-        dispatch(setAccessToken(null, null))
-        dispatch(setAccountId(null))
-    }, [])
-    function setType(type) {
-        // initialize aisp/pisp journey to get authorization URL
-        initializeJourney(dispatch, type)
+        this.state = {
+            button: false,
+        }
     }
-    return (
-        <div className="card-side side-back">
-            <div className="container-fluid">
-                <h1>Pay your rent now!</h1>
 
-                <div className="">
-                    <a
-                        href="https://www.nwolb.com/Default.aspx?CookieCheck=2020-07-22T05:06:52"
-                        target="_blank"
-                    >
-                        <button className="btn btn-primary">Pay now</button>
-                    </a>
-                </div>
+    handleClick = (event) => {
+        if (this.rent && this.date) {
+            var temp = JSON.parse(localStorage.getItem('table') || '[]')
+            temp.push({ rent: this.rent, date: this.date })
+            localStorage.setItem('table', JSON.stringify(temp))
+        }
+    }
 
-                <CardProfileLinks />
-            </div>
-        </div>
-    )
-}
+    handleChangeDate = (event) => {
+        this.date = event.target.value
+        console.log(this.date)
+        this.setState({ button: this.rent && this.date })
+        if (this.state.button) {
+            this.display = {
+                display: 'block',
+            }
+        } else {
+            this.display = {
+                display: 'none',
+            }
+        }
+    }
+    handleChangeRent = (event) => {
+        this.rent = event.target.value
+        console.log(this.rent)
+        this.setState({ button: this.rent && this.date })
+        if (this.state.button) {
+            this.display = {
+                display: 'block',
+            }
+        } else {
+            this.display = {
+                display: 'none',
+            }
+        }
+    }
 
-class CardBack4 extends React.Component {
     render() {
         return (
             <div className="card-side side-back">
                 <div className="container-fluid">
-                    <h1>Coming soon!</h1>
+                    <h1>Pay your rent now!</h1>
+                    <div style={{ align: 'center' }}>
+                        {/*    <form onSubmit={this.handleSubmit}>  */}
+                        <div className="card-form">
+                            <div className="row">
+                                <div className="col-xs-6">
+                                    <input
+                                        name="date"
+                                        id="contactFirstName"
+                                        type="date"
+                                        placeholder="2020-07-23"
+                                        onChange={this.handleChangeDate.bind(
+                                            this
+                                        )}
+                                    />
+                                </div>
 
+                                <div className="col-xs-6">
+                                    <input
+                                        name="rent"
+                                        id="contactLastName"
+                                        type="number"
+                                        placeholder="Rent amount"
+                                        onChange={this.handleChangeRent.bind(
+                                            this
+                                        )}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="row"></div>
+
+                            <CardTextarea
+                                name="contactMessage"
+                                id="contactMessage"
+                                placeholder="Enter your comments"
+                            />
+                            <br />
+                            <br />
+
+                            <a href="./RentHistory">
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={this.handleClick.bind(this)}
+                                >
+                                    Pay now
+                                </button>
+                            </a>
+                            <br />
+                            <br />
+                        </div>
+                        {/*</form> */}
+                        <a href="./RentHistory">
+                            <button className="btn btn-primary">
+                                View rent history
+                            </button>
+                        </a>
+                    </div>
+                    <CardProfileLinks />
+                </div>
+            </div>
+        )
+    }
+}
+
+class CardBack4 extends React.Component {
+    render() {
+        var count = JSON.parse(localStorage.getItem('table')).length
+        var displayString
+        if (count < 7) {
+            displayString = 'Rent Pay panu da punda'
+        } else {
+            displayString = 'Your credit score is ' + count * 50
+        }
+        return (
+            <div className="card-side side-back">
+                <div className="container-fluid">
+                    <h1>Credit Score</h1>
+                    {displayString}
                     <CardProfileLinks />
                 </div>
             </div>

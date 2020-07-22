@@ -18,6 +18,7 @@ import PrivateRoute from './PrivateRoute'
 import Payments from './Payments'
 import Login from './Login'
 import { Menu } from './Menu'
+import { RentHistory } from './RentHistory'
 import './App.css'
 
 import {
@@ -55,6 +56,11 @@ const App = () => {
                             <Route exact path="/" component={Dashboard} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/menu" component={Menu} />
+                            <Route
+                                exact
+                                path="/RentHistory"
+                                component={RentHistory}
+                            />
                             <Route
                                 exact
                                 path="/payments"
