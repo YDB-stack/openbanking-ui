@@ -40,55 +40,55 @@ class Apartment extends React.Component {
     render() {
         return (
             <>
-                <h1>INSIDE</h1>
-                <label for="city">Choose a city </label>
-                <select
-                    value={this.state.value}
-                    onChange={this.handleChange.bind(this)}
-                >
-                    <option value="none">Select</option>
-                    <option value="London">London</option>
-                    <option value="Edinburgh">Edinburgh</option>
-                    <option value="Manchester">Manchester</option>
-                    <option value="Liverpool">Liverpool</option>
-                    <br />
-                </select>
-                <br />
-                <br />
-                <br />
-                <button
-                    className="btn btn-primary"
-                    onClick={this.handleClick.bind(this)}
-                >
-                    Search
-                </button>
+                <h1 align="center">Choose your city</h1>
+                <div align="center">
+                    <select
+                        className="wide-select"
+                        value={this.state.value}
+                        onChange={this.handleChange.bind(this)}
+                    >
+                        <option value="none">Select</option>
+                        <option value="London">London</option>
+                        <option value="Edinburgh">Edinburgh</option>
+                        <option value="Manchester">Manchester</option>
+                        <option value="Liverpool">Liverpool</option>
+                    </select>
+                    <button
+                        className="btn btn-primary"
+                        onClick={this.handleClick.bind(this)}
+                    >
+                        Search
+                    </button>
+                </div>
                 <div className="parent-box">
                     {this.state.data
                         ? this.state.data.listing.map((item) => {
                               return (
                                   <div className="box">
-                                      <img src={item.agent_logo}></img>
-                                      <br />
-                                      <br />
-                                      <strong>Address</strong>
-                                      <br />
-                                      {item.displayable_address}
-                                      <br />
-                                      <strong>Agent Name</strong>
-                                      <br />
-                                      {item.agent_name}
-                                      <br />
-                                      <br />
-                                      <strong>Price</strong>
-                                      <br />
-                                      {item.price}
-                                      <br />
-                                      <br />
-                                      <strong>Status</strong>
-                                      <br />
-                                      {item.listing_status}
-                                      <br />
-                                      <br />
+                                      <p align="center">
+                                          <img src={item.agent_logo}></img>
+                                          <br />
+                                          <br />
+                                          <strong>Address</strong>
+                                          <br />
+                                          {item.displayable_address}
+                                          <br />
+                                          <strong>Agent Name</strong>
+                                          <br />
+                                          {item.agent_name}
+                                          <br />
+                                          <br />
+                                          <strong>Price</strong>
+                                          <br />
+                                          {item.price}
+                                          <br />
+                                          <br />
+                                          <strong>Status</strong>
+                                          <br />
+                                          {item.listing_status}
+                                          <br />
+                                          <br />
+                                      </p>
                                   </div>
                               )
                           })
