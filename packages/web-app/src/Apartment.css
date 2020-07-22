@@ -10,3 +10,8 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.wide-select {
+    width: 40%;
+    height: 35px;
+}
