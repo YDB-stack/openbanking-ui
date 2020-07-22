@@ -1,6 +1,8 @@
 .box {
     margin: 30px;
     width: 20%;
+    border-style: solid;
+    border-radius: 30px;
 }
 
 .parent-box {
