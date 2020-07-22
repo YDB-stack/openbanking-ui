@@ -100,7 +100,7 @@ class CardFront extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ backgroundColor: '#470E69' }}>
+                <div className="topDiv" style={{ backgroundColor: '#470E69' }}>
                     <div
                         className="col-xs-6 side-front-content"
                         style={{ color: 'white' }}
@@ -124,7 +124,7 @@ class CardFront2 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ background: '#00B5BE' }}>
+                <div className="topDiv" style={{ background: '#00B5BE' }}>
                     <div className="col-xs-6 side-front-content">
                         <h1 align="center">Find Rentals/Buy a home</h1>
                         <p align="center">
@@ -146,7 +146,7 @@ class CardFront3 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ backgroundColor: '#FF2D5D' }}>
+                <div className="topDiv" style={{ backgroundColor: '#FF2D5D' }}>
                     <div className="col-xs-6 side-front-content">
                         <h1 align="center">Pay your rent</h1>
                         <p align="center">
@@ -167,13 +167,12 @@ class CardFront4 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ backgroundColor: '#FFAD00' }}>
+                <div className="topDiv" style={{ backgroundColor: '#FFAD00' }}>
                     <div className="col-xs-6 side-front-content">
                         <h1 align="center">Credit scores and offers</h1>
                         <p align="center">
                             Now generate an exclusive credit rating based on
-                            your rent paying history <br />
-                            and <br />
+                            your rent paying history and <br />
                             Avail exciting offers including housing loans!
                         </p>
                     </div>

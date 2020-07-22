@@ -32,8 +32,8 @@ h2 {
     padding: 5px;
 }
 
-.bgcolor {
-    background-color: peachpuff;
+.topDiv {
+    height: 35%;
     /*  color: #4d4dff */
 }
 .fill {
