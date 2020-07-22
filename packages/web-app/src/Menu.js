@@ -20,6 +20,7 @@ import './Menu.css'
 import { initializeJourney } from '@openbanking/ui-data/lib/services/auth-service'
 import { setAccessToken } from '@openbanking/ui-data/lib/actions/auth'
 import { setAccountId } from '@openbanking/ui-data/src/actions/account'
+import { Opacity } from '@material-ui/icons'
 
 const cardContainer = document.querySelector('.react-card')
 
@@ -99,8 +100,11 @@ class CardFront extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ backgroundColor: 'peachpuff' }}>
-                    <div className="col-xs-6 side-front-content">
+                <div style={{ backgroundColor: '#470E69' }}>
+                    <div
+                        className="col-xs-6 side-front-content"
+                        style={{ color: 'white' }}
+                    >
                         <h1 align="center">Your Bank accounts </h1>
                         <p align="center">
                             View and add your bank accounts in one place !
@@ -109,7 +113,7 @@ class CardFront extends React.Component {
                 </div>
                 <div
                     className="fill"
-                    style={{ backgroundColor: '#ffba7e' }}
+                    style={{ backgroundColor: '#470E69', opacity: 0.5 }}
                 ></div>
             </div>
         )
@@ -120,7 +124,7 @@ class CardFront2 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ background: 'green' }}>
+                <div style={{ background: '#00B5BE' }}>
                     <div className="col-xs-6 side-front-content">
                         <h1 align="center">Find Rentals/Buy a home</h1>
                         <p align="center">
@@ -131,7 +135,7 @@ class CardFront2 extends React.Component {
                 </div>
                 <div
                     className="fill"
-                    style={{ backgroundColor: 'lightblue' }}
+                    style={{ background: '#00B5BE', opacity: 0.5 }}
                 ></div>
             </div>
         )
@@ -142,7 +146,7 @@ class CardFront3 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ backgroundColor: '#9e209e' }}>
+                <div style={{ backgroundColor: '#FF2D5D' }}>
                     <div className="col-xs-6 side-front-content">
                         <h1 align="center">Pay your rent</h1>
                         <p align="center">
@@ -150,7 +154,10 @@ class CardFront3 extends React.Component {
                         </p>
                     </div>
                 </div>
-                <div className="fill" style={{ backgroundColor: 'pink' }}></div>
+                <div
+                    className="fill"
+                    style={{ backgroundColor: '#FF2D5D', opacity: 0.5 }}
+                ></div>
             </div>
         )
     }
@@ -160,7 +167,7 @@ class CardFront4 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div style={{ backgroundColor: '#4d4dff' }}>
+                <div style={{ backgroundColor: '#FFAD00' }}>
                     <div className="col-xs-6 side-front-content">
                         <h1 align="center">Credit scores and offers</h1>
                         <p align="center">
@@ -173,7 +180,7 @@ class CardFront4 extends React.Component {
                 </div>
                 <div
                     className="fill"
-                    style={{ backgroundColor: 'lightgreen' }}
+                    style={{ backgroundColor: '#FFAD00', opacity: 0.5 }}
                 ></div>
             </div>
         )
