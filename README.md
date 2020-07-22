@@ -1,7 +1,9 @@
-openbanking-ui
-==============
+NatWest Smart Rentals
+=====================
 
-A collection AISP and PISP APIs.
+This app allows a customer to add accounts, check for apartment rental listings as well as pay for them on a single platform.
+
+* Login with your email ID and any password to access the services
 
 Pre-requisites
 --------------
