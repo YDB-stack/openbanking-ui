@@ -99,14 +99,18 @@ class CardFront extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="col-xs-6"></div>
-
-                <div className="col-xs-6 side-front-content">
-                    <h1 align="center">Your Bank accounts </h1>
-                    <p align="center">
-                        View and add your bank accounts in one place !
-                    </p>
+                <div style={{ backgroundColor: 'peachpuff' }}>
+                    <div className="col-xs-6 side-front-content">
+                        <h1 align="center">Your Bank accounts </h1>
+                        <p align="center">
+                            View and add your bank accounts in one place !
+                        </p>
+                    </div>
                 </div>
+                <div
+                    className="fill"
+                    style={{ backgroundColor: '#ffba7e' }}
+                ></div>
             </div>
         )
     }
@@ -116,15 +120,19 @@ class CardFront2 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="col-xs-6"></div>
-
-                <div className="col-xs-6 side-front-content">
-                    <h1 align="center">Find Rentals/Buy a home</h1>
-                    <p align="center">
-                        Check out Apartment listings at your preferred location
-                        based on your lifestyle at your budget!
-                    </p>
+                <div style={{ background: 'green' }}>
+                    <div className="col-xs-6 side-front-content">
+                        <h1 align="center">Find Rentals/Buy a home</h1>
+                        <p align="center">
+                            Check out Apartment listings at your preferred
+                            location based on your lifestyle at your budget!
+                        </p>
+                    </div>
                 </div>
+                <div
+                    className="fill"
+                    style={{ backgroundColor: 'lightblue' }}
+                ></div>
             </div>
         )
     }
@@ -134,14 +142,15 @@ class CardFront3 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="col-xs-6"></div>
-
-                <div className="col-xs-6 side-front-content">
-                    <h1 align="center">Pay your rent</h1>
-                    <p align="center">
-                        Pay your rent with the click of a button!
-                    </p>
+                <div style={{ backgroundColor: '#9e209e' }}>
+                    <div className="col-xs-6 side-front-content">
+                        <h1 align="center">Pay your rent</h1>
+                        <p align="center">
+                            Pay your rent with the click of a button!
+                        </p>
+                    </div>
                 </div>
+                <div className="fill" style={{ backgroundColor: 'pink' }}></div>
             </div>
         )
     }
@@ -151,17 +160,21 @@ class CardFront4 extends React.Component {
     render() {
         return (
             <div className="card-side side-front">
-                <div className="col-xs-6"></div>
-
-                <div className="col-xs-6 side-front-content">
-                    <h1 align="center">Credit scores and offers</h1>
-                    <p align="center">
-                        Now generate an exclusive credit rating based on your
-                        rent paying history <br />
-                        and <br />
-                        Avail exciting offers including housing loans!
-                    </p>
+                <div style={{ backgroundColor: '#4d4dff' }}>
+                    <div className="col-xs-6 side-front-content">
+                        <h1 align="center">Credit scores and offers</h1>
+                        <p align="center">
+                            Now generate an exclusive credit rating based on
+                            your rent paying history <br />
+                            and <br />
+                            Avail exciting offers including housing loans!
+                        </p>
+                    </div>
                 </div>
+                <div
+                    className="fill"
+                    style={{ backgroundColor: 'lightgreen' }}
+                ></div>
             </div>
         )
     }
