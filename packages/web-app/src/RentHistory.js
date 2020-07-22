@@ -27,7 +27,7 @@ const rows = [
 ];
 */
 function RentHistory() {
-    var temp = JSON.parse(localStorage.getItem('table'))
+    var temp = JSON.parse(localStorage.getItem('table') || '[]')
     console.log(temp)
     /* var rows = [
         createData(temp[0].date, temp[0].rent)];

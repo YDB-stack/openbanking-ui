@@ -410,10 +410,11 @@ class CardBack3 extends React.Component {
 
 class CardBack4 extends React.Component {
     render() {
-        var count = JSON.parse(localStorage.getItem('table')).length
+        var count = JSON.parse(localStorage.getItem('table') || '[]').length
         var displayString
         if (count < 7) {
-            displayString = 'Please use the app more for rent payments to get your first credit score'
+            displayString =
+                'Please use the app more for rent payments to get your first credit score'
         } else {
             displayString = 'Your credit score is ' + count * 50
         }

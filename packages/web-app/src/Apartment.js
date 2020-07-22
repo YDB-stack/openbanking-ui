@@ -13,7 +13,11 @@ class Apartment extends React.Component {
 
         var accounts = localStorage.getItem('accounts')
         accounts = JSON.parse(accounts)
-        accountCount = accounts.length
+        if (accounts) {
+            accountCount = accounts.length
+        } else {
+            accountCount = 0
+        }
 
         this.state = {
             value: 'none',
