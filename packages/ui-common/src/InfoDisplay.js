@@ -37,15 +37,17 @@ export default function InfoDisplay({ data = {} }) {
         console.log(JSON.stringify(accounts))
         localStorage.setItem('accounts', JSON.stringify(accounts))
         console.log('Account setttt')
-        return <ListAccounts accounts={accounts} />
+        //    return <ListAccounts accounts={accounts} />
     } else if (balance) {
         console.log(balance)
         console.log('Balance storing locally')
         localStorage.setItem('balance', JSON.stringify(balance))
         console.log(JSON.stringify(balance))
-        return <ShowBalance balance={balance} />
+        //   return <ShowBalance balance={balance} />
     } else if (transaction) {
         localStorage.setItem('transaction', JSON.stringify(transaction))
-        return <Showtransactions transaction={transaction} />
+        //   return <Showtransactions transaction={transaction} />
     }
+
+    return null
 }

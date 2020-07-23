@@ -53,9 +53,38 @@ const Accounts = () => {
 
     return (
         <div className="mainContainer">
-            <h2 className="pageTitle">AISP Information</h2>
+            <h2 className="pageTitle">
+                Your account has been successfully added <br />
+                <br />
+                {data
+                    ? data.Data.Account.map((item) => {
+                          return (
+                              <>
+                                  <br />
+                                  <strong>{item.Nickname}</strong>
+                                  <br />
+                              </>
+                          )
+                      })
+                    : console.log('null from Account component')}
+            </h2>
+            <a href="/menu">
+                <Button
+                    // type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    preventDefault
+                    className={classes.submit}
+                    //onClick={Card}
+                >
+                    Back to menu
+                </Button>
+            </a>
+
             <div className="apiContainer">
                 <div className="btnContainer">
+                    {/*
                     <button
                         className="buttonLinks"
                         onClick={() => {
@@ -89,6 +118,7 @@ const Accounts = () => {
                         Get Account Direct Debits
                     </button>
                     */}
+                    {/*
                     <button
                         className="buttonLinks"
                         onClick={() =>
@@ -113,24 +143,10 @@ const Accounts = () => {
                         Get Account Standing Orders
                     </button>
                     */}
-                    <a href="/menu">
-                        <Button
-                            // type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            preventDefault
-                            className={classes.submit}
-                            //onClick={Card}
-                        >
-                            Back to menu
-                        </Button>
-                    </a>
                 </div>
-
                 <div className="displayInfo">
                     <InfoDisplay data={data} />
-                    {console.log('DATAAAAAA')}
+                    {console.log('DATA after InfoDisplay')}
                     {console.log(data)}
                 </div>
             </div>

@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import { Card } from './Menu'
+import pic from './natwest.jpg'
+import './Login.css'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -89,63 +91,64 @@ export default function AddEmployee() {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <GroupIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Login
-                </Typography>
-                <form className={classes.form} noValidate>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="username"
-                                value={name}
-                                label="Username"
-                                name="Username"
-                                autoComplete="Username"
-                                onChange={handleNameChange}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                autoComplete="password"
-                                type="password"
-                                name="password"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                value={department}
-                                id="password"
-                                label="Password"
-                                onChange={handlDepartmentChange}
-                            />
-                        </Grid>
-                    </Grid>
-                    <a href="/menu">
-                        <Button
-                            // type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            preventDefault
-                            className={classes.submit}
-                            //onClick={Card}
-                        >
-                            Login
-                        </Button>
-                    </a>
-                </form>
-                <Typography style={{ margin: 7 }} variant="body1">
-                    Status: {message}
-                </Typography>
+        <div className="backImage">
+            <div className="contentSolid">
+                <Container component="main" maxWidth="xs">
+                    <CssBaseline />
+                    <div className={classes.paper}>
+                        <Avatar className={classes.avatar}>
+                            <GroupIcon />
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            Welcome to NatWest Smart Rentals!
+                        </Typography>
+                        <form className={classes.form} noValidate>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="username"
+                                        value={name}
+                                        label="Username"
+                                        name="Username"
+                                        autoComplete="Username"
+                                        onChange={handleNameChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        autoComplete="password"
+                                        type="password"
+                                        name="password"
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        value={department}
+                                        id="password"
+                                        label="Password"
+                                        onChange={handlDepartmentChange}
+                                    />
+                                </Grid>
+                            </Grid>
+                            <a href="/menu">
+                                <Button
+                                    // type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    preventDefault
+                                    className={classes.submit}
+                                    //onClick={Card}
+                                >
+                                    Login
+                                </Button>
+                            </a>
+                        </form>
+                    </div>
+                </Container>
             </div>
-        </Container>
+        </div>
     )
 }

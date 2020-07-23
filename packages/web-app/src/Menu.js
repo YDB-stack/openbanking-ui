@@ -213,8 +213,11 @@ class CardBack extends React.Component {
         console.log('balance===')
         console.log(balance)
         return (
-            <div className="card-side side-back">
-                <div className="container-fluid">
+            <div
+                className="card-side side-back"
+                style={{ backgroundColor: '#470E69' }}
+            >
+                <div className="container-fluid" style={{ color: 'white' }}>
                     <h1>View/Add your bank accounts</h1>
                     {accounts !== null
                         ? accounts.map((item) => {
@@ -237,9 +240,13 @@ class CardBack extends React.Component {
 class CardBack2 extends React.Component {
     render() {
         return (
-            <div className="card-side side-back">
-                <div className="container-fluid">
+            <div
+                className="card-side side-back"
+                style={{ background: '#00B5BE' }}
+            >
+                <div className="container-fluid" style={{ color: 'white' }}>
                     <h1>Search for your Dream Home</h1>
+                    <br />
 
                     <div className="">
                         <a href="/apartments">
@@ -341,67 +348,62 @@ class CardBack3 extends React.Component {
 
     render() {
         return (
-            <div className="card-side side-back">
-                <div className="container-fluid">
+            <div
+                className="card-side side-back"
+                style={{ backgroundColor: '#FF2D5D' }}
+            >
+                <div className="container-fluid" style={{ color: 'white' }}>
                     <h1>Pay your rent now!</h1>
                     <div style={{ align: 'center' }}>
                         {/*    <form onSubmit={this.handleSubmit}>  */}
                         <div className="card-form">
-                            <div className="row">
-                                <div className="col-xs-6">
-                                    <input
-                                        name="date"
-                                        id="contactFirstName"
-                                        type="date"
-                                        placeholder="2020-07-23"
-                                        onChange={this.handleChangeDate.bind(
-                                            this
-                                        )}
-                                    />
-                                </div>
-
-                                <div className="col-xs-6">
-                                    <input
-                                        name="rent"
-                                        id="contactLastName"
-                                        type="number"
-                                        placeholder="Rent amount"
-                                        onChange={this.handleChangeRent.bind(
-                                            this
-                                        )}
-                                    />
-                                </div>
+                            <div className="col-xs-6">
+                                <input
+                                    name="date"
+                                    id="contactFirstName"
+                                    type="date"
+                                    placeholder="2020-07-23"
+                                    onChange={this.handleChangeDate.bind(this)}
+                                />
+                            </div>{' '}
+                            <br />
+                            <div className="col-xs-6">
+                                <input
+                                    name="rent"
+                                    id="contactLastName"
+                                    type="number"
+                                    placeholder="Rent amount"
+                                    onChange={this.handleChangeRent.bind(this)}
+                                />
                             </div>
-
-                            <div className="row"></div>
-
+                            <br />
                             <CardTextarea
                                 name="contactMessage"
                                 id="contactMessage"
                                 placeholder="Enter your comments"
                             />
                             <br />
-                            <br />
-
-                            <a href="./RentHistory">
-                                <button
-                                    className="btn btn-primary"
-                                    onClick={this.handleClick.bind(this)}
-                                >
-                                    Pay now
-                                </button>
-                            </a>
-                            <br />
-                            <br />
                         </div>
                         {/*</form> */}
+
+                        <a href="./RentHistory">
+                            <button
+                                style={{ margin: 'auto' }}
+                                className="btn btn-primary"
+                                onClick={this.handleClick.bind(this)}
+                            >
+                                Pay now
+                            </button>
+                        </a>
+                        <br />
+                        <br />
+
                         <a href="./RentHistory">
                             <button className="btn btn-primary">
                                 View rent history
                             </button>
                         </a>
                     </div>
-                    <CardProfileLinks />
                 </div>
             </div>
         )
@@ -412,15 +414,18 @@ class CardBack4 extends React.Component {
     render() {
         var count = JSON.parse(localStorage.getItem('table') || '[]').length
         var displayString
-        if (count < 7) {
+        if (count < 4) {
             displayString =
                 'Please use the app more for rent payments to get your first credit score'
         } else {
-            displayString = 'Your credit score is ' + count * 50
+            displayString = 'Your credit score is ' + count * 100
         }
         return (
-            <div className="card-side side-back">
-                <div className="container-fluid">
+            <div
+                className="card-side side-back"
+                style={{ backgroundColor: '#FFAD00' }}
+            >
+                <div className="container-fluid" style={{ color: 'white' }}>
                     <h1>Credit Score</h1>
                     {displayString}
                     <CardProfileLinks />

@@ -1,0 +1,12 @@
+.backImage {
+    background-image: url('natwest.jpg');
+    height: 1080px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-blend-mode: color;
+    background-color: rgb(255, 255, 25, 0.6);
+}
+
+.contentSolid {
+    opacity: 1;
+}
